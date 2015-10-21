@@ -3,7 +3,9 @@ using System.Collections;
 
 public class EggController : MonoBehaviour {
 	public Rigidbody sperm;
+	public GameObject embryo;
 	public Canvas text;
+	public Transform goal;
 	// Use this for initialization
 	void Start () {
 		text.enabled=false;
@@ -16,10 +18,11 @@ public class EggController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider activator)
 	{
-		if(activator.GetComponent<Collider>().name=="Player")
+		if(activator.GetComponent<Collider>().tag=="Player")
 		{
+			//text.enabled=true;
 			activator.GetComponent<PlayerController>().SetMiniGame();
-			text.enabled=true;
+
 		}
 	}
 }

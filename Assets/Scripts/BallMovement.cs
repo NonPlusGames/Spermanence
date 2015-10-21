@@ -4,7 +4,9 @@ using System.Collections;
 public class BallMovement : MonoBehaviour {
 
 	Vector3 inputVector;
+	Vector3 inputVector2;
 	Rigidbody rbody;
+	public GameObject egg;
 
 	void Start()
 	{
@@ -15,14 +17,15 @@ public class BallMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
-		inputVector=(Camera.main.transform.position+new Vector3(-3f,0f,0f))-transform.position;
-		
+		inputVector=(egg.transform.position-transform.position);
+		inputVector2=(Camera.main.transform.position-transform.position);
 	}
 	
 	void FixedUpdate()
 	{
 		//Normalize, standardizes a vector to length 1
 		
-		rbody.GetComponent<Rigidbody>().velocity +=Vector3.Normalize(inputVector)*.1f;
+		rbody.GetComponent<Rigidbody>().velocity +=Vector3.Normalize(inputVector)*1.0f;
+		rbody.GetComponent<Rigidbody>().velocity +=Vector3.Normalize(inputVector2)*1.2f;
 	}
 }

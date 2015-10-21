@@ -10,9 +10,9 @@ public class BallController : MonoBehaviour {
 	void Start()
 	{
 		int i=0;
-		while(i<10)
+		while(i<300)
 		{
-			Instantiate (ball, new Vector3(-9f,5f,0), Quaternion.identity);
+			Instantiate (ball, transform.position, Quaternion.identity);
 			i++;
 		}
 		counter=0;		
@@ -21,12 +21,8 @@ public class BallController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(counter==25)
-		{
-			Instantiate (ball, new Vector3(-9f,5f,0), Quaternion.identity);
-			counter=0;
-		}
-		counter++;
+	
+				
 	
 	}
 }
